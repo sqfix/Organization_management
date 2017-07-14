@@ -14,28 +14,28 @@ public class DepartmentController {
     @Autowired
     private DepartmentService departmentService;
 
-    @RequestMapping(value = "/")
-    public List<Department> getAll(){
+    @RequestMapping(value = {"/", ""})
+    public List<Department> getAll() {
         return departmentService.getAllDepartments();
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String addDepartment(@RequestBody Department department){
+    public String addDepartment(@RequestBody Department department) {
         return departmentService.saveDepartment(department);
     }
 
     @RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
-    public Department getById(@PathVariable int id){
+    public Department getById(@PathVariable int id) {
         return departmentService.getDepartmentById(id);
     }
 
     @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
-    public String updateDepartment(@PathVariable int id, @RequestBody Department department){
+    public String updateDepartment(@PathVariable int id, @RequestBody Department department) {
         return departmentService.updateDepartment(id, department);
     }
 
     @RequestMapping(value = "/remove/{id}", method = RequestMethod.GET)
-    public String remove(@PathVariable int id){
+    public String remove(@PathVariable int id) {
         return departmentService.removeDepartmentById(id);
     }
 
