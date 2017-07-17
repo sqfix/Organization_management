@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.ArrayList;
+
 @SpringBootApplication
 public class Application {
 
@@ -34,6 +36,16 @@ public class Application {
         Employee employeeHRFirst = new Employee("John", coreValueHR);
         Employee employeeDevFirst = new Employee("Richard", coreValueDev);
         Employee employeeDevSecond = new Employee("Dave", coreValueDev);
+
+        /**
+         * Test a collision case: where employees can't decide who there really a boss.
+         */
+        employeeHRFirst.setSubordinate(new ArrayList<Employee>() {{
+            add(employeeDevFirst);
+        }});
+        employeeDevFirst.setSubordinate(new ArrayList<Employee>() {{
+            add(employeeHRFirst);
+        }});
 
         organizationRepository.save(coreValueOrg);
         departmentsRepository.save(coreValueHR);

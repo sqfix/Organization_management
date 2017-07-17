@@ -9,10 +9,10 @@ public class Department {
     @GeneratedValue
     private Integer id;
     private String name;
+
     @ManyToOne(optional = false)
     @JoinColumn(name = "org_id", nullable = false, updatable = false)
     private Organization org;
-
 
     public Department() {
     }

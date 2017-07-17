@@ -37,10 +37,9 @@ public class EmployeeService {
 
     public Employee getEmpById(int id) {
         LOGGER.info("Get employee by id " + id);
-        return employeesRepository.findById(id);
+        return employeesRepository.findOne(id);
     }
 
-    //TODO: Check
     public String updateEmployee(int id, Employee employee) {
         LOGGER.info("Update employee " + id);
         Employee tempEmp = getEmpById(id);

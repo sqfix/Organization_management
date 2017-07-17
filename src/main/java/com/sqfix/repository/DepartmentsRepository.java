@@ -9,6 +9,4 @@ import org.springframework.stereotype.Repository;
 public interface DepartmentsRepository extends JpaRepository<Department, Integer> {
 
     Department findByName(String name);
-
-    Department findById(int id);
 }

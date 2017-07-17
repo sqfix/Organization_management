@@ -39,4 +39,9 @@ public class EmployeesController {
         return employeeService.removeEmployeeById(id);
     }
 
+    @RequestMapping(value = "sub/{empId}")
+    public List<Employee> getSubordinatesByEmployeeId(@PathVariable int empId) {
+        return employeeService.getEmpById(empId).getSubordinates();
+    }
+
 }

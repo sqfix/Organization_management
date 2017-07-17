@@ -37,7 +37,7 @@ public class DepartmentService {
 
     public Department getDepartmentById(int id) {
         LOGGER.info("Get department by id " + id);
-        return departmentsRepository.findById(id);
+        return departmentsRepository.findOne(id);
     }
 
     public String updateDepartment(int id, Department department) {
